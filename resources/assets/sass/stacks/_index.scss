@@ -1,0 +1,253 @@
+#stacks {
+    padding: 80px 15px;
+
+    .stacks-box {
+        background: #4c4848;
+        padding: 100px 15px;
+        position: relative;
+        margin-bottom: 20px;
+
+        .title {
+            font-family: 'Helvetica Neue','Montserrat','Raleway', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 32px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .stats {
+            padding: 15px 30px 15px 15px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+
+            .number {
+                text-align: center;
+                font-size: 24px;
+                font-weight: 100;
+                color: #24ff2e;
+                line-height: 1;
+            }
+
+            .name {
+                color: #fff;
+                text-align: center;
+                font-size: 12px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    .timeline {
+        // margin: 50px;
+        padding: 0;
+        position: relative;
+
+        &::before {
+            content: ' ';
+            height: 100%;
+            width: 1px;
+            background-color: #5b1de8;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            z-index: 1;
+        }
+
+        li {
+            position: relative;
+            list-style: none;
+            padding: 25px;
+
+            .circle {
+                position: absolute;
+                background: #fff;
+                left: -0px;
+                top: 40px;
+                display: inline-block;
+                height: 20px;
+                width: 20px;
+                border: 2px solid #5b1de8;
+                border-radius: 50%;
+                z-index: 2;
+                text-align: center;
+
+                &.active {
+                    background: #5b1de8;
+                }
+
+                .fa {
+                    position: relative;
+                    top: -5px;
+                    font-size: 10px;
+                    color: #fff;
+                }
+            }
+
+            .box {
+                display: inline-block;
+                background: #fff;
+                padding: 15px;
+                width: 100%;
+                border: 1px solid #5b1de8;
+                border-radius: 3px;
+
+                h3 {
+                    color: #1b1b1b;
+                    margin: 0;
+                    padding: 0;
+                    text-transform: uppercase;
+                    margin-bottom: 0.7em;
+                }
+            }
+        }
+    }
+
+    .video-box {
+        width: 100%;
+        min-height: 150px;
+        background: #fff;
+        padding: 15px;
+        margin-bottom: 20px;
+        -webkit-box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+        box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+
+        .title {
+            color: #1b1b1b;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .user-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+        }
+
+        .video-info {
+            .info {
+                font-weight: 300;
+                text-align: left;
+                font-size: 12px;
+            }
+        }
+
+        .vote-area {
+            margin-bottom: 15px;
+
+            .typcn {
+                font-size: 36px;
+            }
+
+            .votes {
+                font-weight: 100;
+            }
+        }
+
+        .editors-choice {
+            background: #1b1b1b;
+            font-size: 12px;
+            color: #e0c904;
+            text-transform: uppercase;
+
+            a {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .comment-box {
+        width: 100%;
+        min-height: 150px;
+        background: #5b1de8;
+        background: -webkit-linear-gradient(left, #5b1de8 0%, #26006b 100%);
+        background: linear-gradient(to right, #5b1de8 0%, #26006b 100%);
+        padding: 15px;
+        margin-bottom: 20px;
+        -webkit-box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+        box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+
+        .title {
+            color: #fff;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+
+        .comment {
+            border-bottom: 1px solid rgba(255,255,255,.5);
+            padding: 15px 0;
+
+            .user-img {
+                background: #fff;
+                width: 50px;
+                height: 50px;
+            }
+
+            p {
+                font-weight: 500;
+                // text-transform: uppercase;
+                color: #fff;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .vote-box {
+        width: 100%;
+        min-height: 150px;
+        background: #fff;
+        padding: 15px;
+        margin-bottom: 20px;
+        -webkit-box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+        box-shadow: 0 15px 25px 4px rgba(0,0,0,0.2);
+
+        .title {
+            color: #1b1b1b;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .video {
+            .video-title {
+                font-weight: 700;
+                font-size: 16px;
+            }
+
+            .video-info {
+                padding: 0;
+                font-size: 12px;
+                color: #1b1b1b;
+            }
+        }
+
+        .vote-area {
+            text-align: center;
+            margin-bottom: 15px;
+
+            .typcn {
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .votes {
+                font-size: 10px;
+                font-weight: 500;
+            }
+        }
+    }
+}

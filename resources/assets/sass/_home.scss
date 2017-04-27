@@ -1,0 +1,162 @@
+body {
+    overflow-x: hidden;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+#jumbo {
+    background: url('/img/home.png') no-repeat left center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    // background: #111B31;
+    // min-height: 720px;
+    height: 100vh;
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+
+    .backAtIt {
+        color: #fff;
+        padding: 100px 50px !important;
+
+        h2 {
+            font-weight: 100;
+            font-family: 'Assistant', sans-serif;
+            font-size: 70px;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        .join {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 20px;
+            min-width: 140px;
+            color: #fff;
+            background: purple;
+            border-radius: 4px;
+        }
+    }
+
+    #mc_embed_signup h2 {
+        color: #fff;
+        font-size: 36px;
+        font-weight: 100;
+        font-family: 'Assistant', sans-serif;
+    }
+    text-align: center;
+
+    .logoimg {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .mc-field-group {
+        label {
+            color: #0AD979;
+        }
+
+        input {
+            font-size: 20px;
+            color: #0AD979;
+            border: 2px solid #0AD979;
+            background: #111B31;
+            padding: 10px;
+            width: 250px;
+        }
+    }
+
+    #mc_embed_signup form {
+        background: #111B31;
+        transition: all 0.7s ease;
+
+        .button {
+            background: #FF530D;
+
+            &:hover {
+                background: #E82C0C;
+            }
+        }
+    }
+}
+
+#videos {
+    background: #785CEB;
+}
+@keyframes slideSupport {
+    0% {
+        bottom: -200px;
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.4;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        bottom: 20px;
+    }
+}
+
+.support-box {
+    position: absolute;
+    bottom: -200px;
+    background: rgba(0,0,0, .6);
+    padding: 20px;
+    width: 500px;
+    min-width: 500px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    color: #fff;
+    animation: slideSupport 0.7s linear 1s 1 forwards;
+
+    .donate-btn {
+        display: inline-block;
+        padding: 7px 25px;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        color: #fff !important;
+
+        &:hover {
+            background: green;
+        }
+    }
+}
+@media (max-width: 600px) {
+    #header {
+        .desktop-menu {
+            display: none;
+        }
+    }
+
+    #jumbo {
+        background: url("/img/home.png") no-repeat left center;
+        background-size: cover;
+        /* height: 100vh; */
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .support-box {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        min-width: 100%;
+    }
+}

@@ -1,0 +1,168 @@
+#header {
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+    max-height: 60px;
+    -webkit-box-shadow: 0 6px 13px 0 rgba(147,210,235,0.21);
+    -moz-box-shadow: 0 6px 13px 0 rgba(147,210,235,0.21);
+    box-shadow: 0 6px 13px 0 rgba(147,210,235,0.21);
+
+    .logo {
+        display: inline-block;
+        padding: 0;
+        color: #fff;
+
+        .logoimg {
+            position: relative;
+            top: -5px;
+            width: 100px;
+        }
+    }
+
+    .search {
+        display: inline-block;
+        max-width: 700px;
+        position: absolute;
+        top: 0;
+        color: #fff;
+
+        .search-bar {
+            background: rgba(255,255,255, .5);
+            color: #fff;
+            width: 100%;
+            border: 0 solid;
+            border-radius: 4px;
+            color: #fff;
+        }
+    }
+
+    .menu {
+        display: inline-block;
+        padding: 20px 0 0;
+        float: right;
+
+        .desktop-nav {
+            padding: 0;
+            margin: 0;
+
+            li {
+                display: inline-block;
+                list-style: none;
+
+                a {
+                    color: #fff;
+                    margin-right: 15px;
+
+                    .fa {
+                        color: #5da6d8;
+                        position: relative;
+                        top: -20px;
+                        font-size: 20px;
+                        padding: 20px;
+                        text-shadow: 0 6px 13px rgba(147,210,235,0.21);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.page-content {
+    position: relative;
+    left: 0;
+    transition: all 0.4s ease-in-out;
+
+    #header {
+        width: 100%;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -205px;
+        bottom: 0;
+        z-index: 500;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#769bdc+0,2dcbd0+100 */
+        background: rgb(118,155,220);
+        /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(118,155,220,1) 0%, rgba(45,203,208,1) 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(118,155,220,1) 0%,rgba(45,203,208,1) 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(118,155,220,1) 0%,rgba(45,203,208,1) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        width: 205px;
+        // display: none;
+        transition: all 0.4s ease-in-out;
+
+        ul {
+            padding: 0;
+            margin: 0;
+
+            li {
+                color: #fff;
+                list-style: none;
+                padding: 8px 15px;
+
+                a {
+                    font-size: 16px;
+                    color: #fff;
+
+                    .fa {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.menu-open {
+        position: relative;
+        left: -205px;
+        transition: all 0.4s ease-in-out;
+
+        #header {
+            width: calc(100% - 205px);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 500;
+            width: 205px;
+            transition: all 0.4s ease-in-out;
+            // display: none;
+            ul {
+                padding: 0;
+                margin: 0;
+
+                a:hover {
+                    background: rgba(0,0,0, .5);
+                }
+
+                li {
+                    color: #fff;
+                    list-style: none;
+
+                    &:hover {
+                        background: rgba(0,0,0, .5);
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 600px) {
+    #header {
+        .desktop-menu {
+            display: none;
+        }
+    }
+}

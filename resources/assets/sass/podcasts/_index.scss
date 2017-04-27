@@ -1,0 +1,55 @@
+#podcasts {
+    // background: #cfd7d9;
+    padding: 80px 0;
+
+    .small-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+
+    .content-box {
+        color: #555;
+
+        .podcast-item {
+            margin-bottom: 20px;
+
+            .listen-links {
+                padding: 0.5em 0;
+
+                a {
+                    padding: 5px 10px;
+                    margin-bottom: 10px;
+                    background: #000;
+                    color: #fff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all 0.4s ease-in-out;
+                    font-size: 12px;
+                    line-height: 2.5;
+
+                    &:hover {
+                        background: #5E35B1;
+                    }
+                }
+            }
+
+            h3 {
+                padding: 1em 0;
+                margin: 0;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            h4 {
+                text-transform: capitalize;
+                padding: 0.5em 0;
+                margin: 0;
+            }
+
+            .podcasts-img {
+                width: 100%;
+                background: #ccc;
+            }
+        }
+    }
+}

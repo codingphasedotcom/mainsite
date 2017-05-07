@@ -42,9 +42,7 @@ Route::get('/admin/example', 'admin\DashboardController@example');
 
 
 
-Route::get('/', function () {
-    return view('frontpage');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 

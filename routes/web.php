@@ -47,6 +47,7 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/logout', 'HomeController@logout');
 Route::get('/resources', 'ResourcesController@index');
 Route::get('/podcasts', 'PodcastsController@index');
 Route::resource('projects', 'ProjectsController');

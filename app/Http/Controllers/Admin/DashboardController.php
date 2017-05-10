@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -12,6 +13,15 @@ class DashboardController extends Controller
       $this->middleware('auth');
   }
     public function index() {
-      return view('admin/dashboard');
+      $user = Auth::user();
+      if($user->hasRole('super_user')
+      || $user->hasRole('admin')
+      || $user->hasRole('moderator')){
+
+        return view('admin/dashboard');
+      }
+      else{
+        return "Sorry No Access to This Page";
+      }
     }
 }

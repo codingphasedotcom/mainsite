@@ -68,11 +68,12 @@ class RegisterController extends Controller
           'fname' => $data['lname'],
           'email' => $data['email'],
           'password' => bcrypt($data['password']),
+          'paid' => 0,
+          'founder' => 1,
       ]);
 
-      $user->attachRole(3);
+      $user->attachRole(4);
       return $user;
 
-        return $user;
     }
 }

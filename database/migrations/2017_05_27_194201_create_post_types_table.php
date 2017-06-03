@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStacksTable extends Migration
+class CreatePostTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateStacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('stacks', function (Blueprint $table) {
+        Schema::create('post_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('bg_img');
             $table->string('slug');
-            $table->longText('description');
-            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateStacksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stacks');
+        Schema::dropIfExists('post_types');
     }
 }

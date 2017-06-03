@@ -8373,15 +8373,20 @@ button.close {
   list-style: none;
 }
 
+#header .menu .desktop-nav li.burger {
+  display: none;
+}
+
 #header .menu .desktop-nav li a {
-  color: #fff;
-  margin-right: 15px;
+  padding: 15px;
+  vertical-align: text-top;
+  color: #5da6d8;
 }
 
 #header .menu .desktop-nav li a .fa {
   color: #5da6d8;
   position: relative;
-  top: -20px;
+  top: 0;
   font-size: 20px;
   padding: 20px;
   text-shadow: 0 6px 13px rgba(147, 210, 235, 0.21);
@@ -8406,7 +8411,7 @@ button.close {
   right: -205px;
   bottom: 0;
   z-index: 500;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#769bdc+0,2dcbd0+100 */
+  /* slug - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#769bdc+0,2dcbd0+100 */
   background: #769bdc;
   /* Old browsers */
   /* FF3.6-15 */
@@ -8481,9 +8486,26 @@ button.close {
   background: rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 600px) {
-  #header .desktop-menu {
+@media (max-width: 991px) {
+  #header .menu {
+    display: inline-block;
+    padding: 0;
+    float: right;
+  }
+
+  #header .menu .desktop-nav {
+    padding: 0;
+    margin: 0;
+  }
+
+  #header .menu .desktop-nav li {
+    display: inline-block;
+    list-style: none;
     display: none;
+  }
+
+  #header .menu .desktop-nav li.burger {
+    display: block;
   }
 }
 
@@ -9010,6 +9032,10 @@ p {
   width: 100%;
 }
 
+#channels .filter-section .add-btn .dropdown {
+  width: 100%;
+}
+
 #channels .channel {
   position: relative;
   height: auto;
@@ -9129,6 +9155,7 @@ p {
 }
 
 #channels #posts .post-box .user-info {
+  max-width: 350px;
   -webkit-box-flex: 2;
       -ms-flex: 2 1 20%;
           flex: 2 1 20%;
@@ -9233,7 +9260,7 @@ p {
 }
 
 body {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9ebffc+0,bcd3fd+50,4d78c5+100 */
+  /* slug - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9ebffc+0,bcd3fd+50,4d78c5+100 */
   background: #f0f4f6;
 }
 
@@ -9264,7 +9291,7 @@ p {
 .bread-crumbs {
   display: inline-block;
   font-family: 'Helvetica Neue','Raleway', sans-serif;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b1de8+0,26006b+100 */
+  /* slug - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5b1de8+0,26006b+100 */
   background: #5b1de8;
   /* Old browsers */
   /* FF3.6-15 */
@@ -9282,7 +9309,7 @@ p {
 }
 
 #backend {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9ebffc+0,bcd3fd+50,4d78c5+100 */
+  /* slug - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9ebffc+0,bcd3fd+50,4d78c5+100 */
   background: #9ebffc;
   /* Old browsers */
   /* FF3.6-15 */

@@ -51,7 +51,7 @@ class SkillsController extends Controller
       $skill->title = request('title');
       $skill->description = request('description');
       $skill->bg_img = request('bg_img');
-      $skill->permalink = request('permalink');
+      $skill->slug = request('slug');
       $skill->user_id =  Auth::user()->id;
 
       $skill->save();

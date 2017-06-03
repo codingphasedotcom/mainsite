@@ -8,16 +8,7 @@
 
       <div class="col-md-3">
         <center>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- responsive -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-1876888588409540"
-               data-ad-slot="6100356041"
-               data-ad-format="auto"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+          @include('includes/sideAds')
 
 
         </center>
@@ -48,7 +39,7 @@
             <div class="col-xs-6 col-md-3">
               <div class="channel">
 
-                <a href="/channels/{{$channel->permalink}}">
+                <a href="/channels/{{$channel->slug}}">
                   <div class="circle spin-circle" style="background-image: linear-gradient(135deg,rgba(181,18,18,.2) 0,#002d77 100%),url({{$channel->logo_img}});
     background-position: center;
     background-size: cover;">

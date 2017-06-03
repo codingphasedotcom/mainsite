@@ -17,7 +17,7 @@ class CreateSkillsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('bg_img');
-            $table->string('permalink');
+            $table->string('slug');
             $table->longText('description');
             $table->integer('user_id');
             $table->timestamps();

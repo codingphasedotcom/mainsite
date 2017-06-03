@@ -4,12 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Channel extends Model
+class PostType extends Model
 {
-  protected $fillable = [
-      'title', 'description', 'approved', 'slug', 'logo', 'submitted_id'
-  ];
-
   public function posts()
     {
         return $this->hasMany('App\Post');

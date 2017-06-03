@@ -2,27 +2,18 @@
 
 @section('content')
 <div id="channels">
-  <div class="container">
+  <div class="">
 
     <div id="posts" class="row">
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-lg-3">
         <center>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- responsive -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-1876888588409540"
-               data-ad-slot="6100356041"
-               data-ad-format="auto"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+          @include('includes/sideAds')
 
 
         </center>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9 col-lg-8">
         <div class="content-box">
           <div class="filter-section">
             <div class="row">
@@ -35,10 +26,30 @@
 
                 </div>
               </div>
-              <div class="col-xs-4 col-md-3">
-                <a href="/channels/submit" class="add-btn">
+              <div class="col-xs-4 col-md-3 dropdown">
+                <a href="/channels/{{ $channel }}/new" class="add-btn dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                   Post
+
                 </a>
+                <ul class="dropdown-menu" role="menu" style="width: 100%;">
+                    <li>
+                        <a href="/channels/{{ $channel }}/new-link">
+                            Link
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/channels/{{ $channel }}/new-link">
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/channels/{{ $channel }}/new-link">
+                            Question
+                        </a>
+                    </li>
+                </ul>
+
+
               </div>
             </div>
           </div>

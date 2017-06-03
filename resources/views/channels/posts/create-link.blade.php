@@ -8,16 +8,7 @@
 
       <div class="col-sm-3">
         <center>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- responsive -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-1876888588409540"
-               data-ad-slot="6100356041"
-               data-ad-format="auto"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+          @include('includes/sideAds')
 
 
         </center>
@@ -34,7 +25,7 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Submit to Add New Channel</h3>
+                      <h3 class="box-title">Create Posts</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -42,30 +33,30 @@
                       <div class="box-body">
 
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                          <label for="title">Channel Title</label>
-                          <input type="text" class="form-control" id="title" placeholder="Enter email" value="{{ old('title') }}" name="title" >
-                          @if ($errors->has('name'))
+                          <label for="title">Link Title</label>
+                          <input type="text" class="form-control" id="title" placeholder="title" value="{{ old('title') }}" name="title" >
+                          @if ($errors->has('title'))
                               <span class="help-block">
-                                  <strong>{{ $errors->first('name') }}</strong>
+                                  <strong>{{ $errors->first('title') }}</strong>
                               </span>
                           @endif
                         </div>
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                          <label for="description">Description</label>
-                          <textarea type="text" class="form-control" id="description" placeholder="Enter email" name="description">{{ old('description') }}</textarea>
-                          @if ($errors->has('name'))
+                          <label for="description">Short Description</label>
+                          <textarea type="text" class="form-control" id="description" placeholder="description" name="description">{{ old('description') }}</textarea>
+                          @if ($errors->has('description'))
                               <span class="help-block">
                                   <strong>{{ $errors->first('description') }}</strong>
                               </span>
                           @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('logo_img') ? ' has-error' : '' }}">
-                          <label for="logo_img">Logo URL</label>
-                          <input type="text" class="form-control" id="logo_img" placeholder="Enter Image URL"  value="{{ old('logo_img') }}" name="logo_img">
-                          @if ($errors->has('name'))
+                        <div class="form-group{{ $errors->has('link_url') ? ' has-error' : '' }}">
+                          <label for="link_url">Link URL</label>
+                          <input type="text" class="form-control" id="link_url" placeholder="Enter Image URL"  value="{{ old('link_url') }}" name="link_url">
+                          @if ($errors->has('link_url'))
                               <span class="help-block">
-                                  <strong>{{ $errors->first('logo_img') }}</strong>
+                                  <strong>{{ $errors->first('link_url') }}</strong>
                               </span>
                           @endif
                         </div>
@@ -97,4 +88,17 @@
 
   </div>
 </div>
+
+
+@endsection
+
+
+@section('scripts')
+<script>
+
+$.ajax('http://opengraph.io/api/1.0/site/http%3A%2F%2Fwww.washingtontimes.com%2F')
+  .done(function(data){
+    console.log(data);
+  });
+</script>
 @endsection

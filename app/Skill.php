@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Skill extends Model
 {
     protected $fillable = [
-        'title', 'description', 'user_id', 'permalink', 'bg_img'
+        'title', 'description', 'user_id', 'slug', 'bg_img'
     ];
 
     public function stacks()

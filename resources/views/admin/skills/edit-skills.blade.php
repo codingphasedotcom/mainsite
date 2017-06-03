@@ -61,8 +61,8 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="permalink">Permalink</label>
-                    <input type="text" class="form-control" id="permalink" placeholder="URL" name="permalink" value="{{ $skill->permalink }}">
+                    <label for="slug">slug</label>
+                    <input type="text" class="form-control" id="slug" placeholder="URL" name="slug" value="{{ $skill->slug }}">
                   </div>
 
                 </div>

@@ -52,14 +52,19 @@
         display: inline-block;
         list-style: none;
 
-        a {
-          color: #5da6d8;
-          margin-right: 15px;
+        &.burger {
+          display: none;
+        }
 
+        a {
+          padding: 15px;
+          vertical-align: text-top;
+          color: #5da6d8;
+          // margin-right: 15px;
           .fa {
             color: #5da6d8;
             position: relative;
-            top: -20px;
+            top: 0;
             font-size: 20px;
             padding: 20px;
             text-shadow: 0 6px 13px rgba(147,210,235,0.21);
@@ -86,7 +91,7 @@
     right: -205px;
     bottom: 0;
     z-index: 500;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#769bdc+0,2dcbd0+100 */
+    /* slug - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#769bdc+0,2dcbd0+100 */
     background: rgb(118,155,220);
     /* Old browsers */
     background: -moz-linear-gradient(top, rgba(118,155,220,1) 0%, rgba(45,203,208,1) 100%);
@@ -159,10 +164,27 @@
     }
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 991px) {
   #header {
-    .desktop-menu {
-      display: none;
+    .menu {
+      display: inline-block;
+      padding: 0;
+      float: right;
+
+      .desktop-nav {
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          list-style: none;
+          display: none;
+
+          &.burger {
+            display: block;
+          }
+        }
+      }
     }
   }
 }

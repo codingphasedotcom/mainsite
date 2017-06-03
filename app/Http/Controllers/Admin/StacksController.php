@@ -53,7 +53,7 @@ class StacksController extends Controller
               $stack->title = request('title');
               $stack->description = request('description');
               $stack->bg_img = request('bg_img');
-              $stack->permalink = request('permalink');
+              $stack->slug = request('slug');
               $stack->user_id =  Auth::user()->id;
 
               $stack->save();
@@ -126,7 +126,7 @@ class StacksController extends Controller
               // $stack->title = request('title');
               // $stack->description = request('description');
               // $stack->bg_img = request('bg_img');
-              // $stack->permalink = request('permalink');
+              // $stack->slug = request('slug');
               // $stack->user_id =  Auth::user()->id;
               //
               // $stack->save();
@@ -146,7 +146,7 @@ class StacksController extends Controller
               // $stack->title = request('title');
               // $stack->description = request('description');
               // $stack->bg_img = request('bg_img');
-              // $stack->permalink = request('permalink');
+              // $stack->slug = request('slug');
               // $stack->user_id =  Auth::user()->id;
               //
               // $stack->save();

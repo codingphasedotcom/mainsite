@@ -36,26 +36,26 @@ class ChannelController extends Controller
        */
       public function store(Request $request)
       {
-                $permalink = request('title');
+                $slug = request('title');
                 // replace non letter or digits by -
-                $permalink = preg_replace('~[^\pL\d]+~u', '-', $permalink);
+                $slug = preg_replace('~[^\pL\d]+~u', '-', $slug);
 
                 // transliterate
-                $permalink = iconv('utf-8', 'us-ascii//TRANSLIT', $permalink);
+                $slug = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
 
                 // remove unwanted characters
-                $permalink = preg_replace('~[^-\w]+~', '', $permalink);
+                $slug = preg_replace('~[^-\w]+~', '', $slug);
 
                 // trim
-                $permalink = trim($permalink, '-');
+                $slug = trim($slug, '-');
 
                 // remove duplicate -
-                $permalink = preg_replace('~-+~', '-', $permalink);
+                $slug = preg_replace('~-+~', '-', $slug);
 
                 // lowercase
-                $permalink = strtolower($permalink);
+                $slug = strtolower($slug);
 
-                if (empty($permalink)) {
+                if (empty($slug)) {
                 return 'n-a';
                 }
 
@@ -65,7 +65,7 @@ class ChannelController extends Controller
                 $channel->title = request('title');
                 $channel->description = request('description');
                 $channel->logo_img = request('logo_img');
-                $channel->permalink = $permalink;
+                $channel->slug = $slug;
                 $channel->submitted_id =  Auth::user()->id;
                 $channel->approved =  0;
 
@@ -109,26 +109,26 @@ class ChannelController extends Controller
        */
       public function update(Request $request, $id)
       {
-        $permalink = request('title');
+        $slug = request('title');
         // replace non letter or digits by -
-        $permalink = preg_replace('~[^\pL\d]+~u', '-', $permalink);
+        $slug = preg_replace('~[^\pL\d]+~u', '-', $slug);
 
         // transliterate
-        $permalink = iconv('utf-8', 'us-ascii//TRANSLIT', $permalink);
+        $slug = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
 
         // remove unwanted characters
-        $permalink = preg_replace('~[^-\w]+~', '', $permalink);
+        $slug = preg_replace('~[^-\w]+~', '', $slug);
 
         // trim
-        $permalink = trim($permalink, '-');
+        $slug = trim($slug, '-');
 
         // remove duplicate -
-        $permalink = preg_replace('~-+~', '-', $permalink);
+        $slug = preg_replace('~-+~', '-', $slug);
 
         // lowercase
-        $permalink = strtolower($permalink);
+        $slug = strtolower($slug);
 
-        if (empty($permalink)) {
+        if (empty($slug)) {
         return 'n-a';
         }
 
@@ -136,7 +136,7 @@ class ChannelController extends Controller
           'title' => request('title'),
           'description' => request('description'),
           'logo_img' => request('logo_img'),
-          'permalink' => $permalink,
+          'slug' => $slug,
           'submitted_id' =>  Auth::user()->id,
           'approved' => request('approved')
         ];

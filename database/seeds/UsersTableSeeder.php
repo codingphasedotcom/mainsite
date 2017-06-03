@@ -30,7 +30,7 @@ class UsersTableSeeder extends Seeder
 
 
         // role attach alias
-        $user->attachRole(1); // parameter can be an Role object, array, or id
+        $user->attachRole(2); // parameter can be an Role object, array, or id
 
     }
 }

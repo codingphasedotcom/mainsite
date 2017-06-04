@@ -23,7 +23,7 @@ class ChannelController extends Controller
         // if($user->hasRole(['super_user', 'admin'])) {
         //   return "THIS IS ADMIN SUPER USER";
         // }
-        return "THIS IS ADMIN SUPER USER";
+        // return "THIS IS ADMIN SUPER USER";
       }
 
 

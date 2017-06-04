@@ -21,23 +21,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/admin', 'admin\DashboardController@index');
+Route::get('/admin', 'Admin\DashboardController@index');
 
 //Channels
-Route::resource('/admin/channels', 'admin\ChannelController');
+Route::resource('/admin/channels', 'Admin\ChannelController');
 
 //STACKS
-Route::resource('/admin/stacks', 'admin\StacksController');
+Route::resource('/admin/stacks', 'Admin\StacksController');
 Route::get('/admin/stacks/{stack_id}/add-skills', 'admin\StacksController@addSkills');
 
 //SKILLS
-Route::resource('/admin/skills', 'admin\SkillsController');
+Route::resource('/admin/skills', 'Admin\SkillsController');
 
 //Podcasts
-Route::resource('/admin/podcasts', 'admin\PodcastsController');
+Route::resource('/admin/podcasts', 'Admin\PodcastsController');
 
 
-Route::get('/admin/example', 'admin\DashboardController@example');
+Route::get('/admin/example', 'Admin\DashboardController@example');
 
 
 

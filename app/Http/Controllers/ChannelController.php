@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Channel;
 use Auth;
+use App\User;
 
 
 class ChannelController extends Controller

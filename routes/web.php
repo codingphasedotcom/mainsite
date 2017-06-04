@@ -62,8 +62,8 @@ Route::get('/journey/frontend', 'journeys\JourneyController@frontend');
 Route::get('/journey/frontend/html', 'journeys\JourneyController@adventures');
 
 Route::get('/channels', 'ChannelController@index');
-Route::get('/channels/submit', 'ChannelController@create');
-Route::post('/channels/submit', 'ChannelController@store');
+Route::get('/channels/submit', 'ChannelController@create')->middleware('auth');
+Route::post('/channels/submit', 'ChannelController@store')->middleware('auth');
 
 Route::get('/channels/{channel}', 'PostController@index');
 

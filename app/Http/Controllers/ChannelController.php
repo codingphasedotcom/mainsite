@@ -19,9 +19,10 @@ class ChannelController extends Controller
       if(Auth::user()) {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
-        if($user->hasRole(['super_user', 'admin'])) {
-          return "THIS IS ADMIN SUPER USER";
-        }
+        // if($user->hasRole(['super_user', 'admin'])) {
+        //   return "THIS IS ADMIN SUPER USER";
+        // }
+        return "THIS IS ADMIN SUPER USER";
       }
 
 

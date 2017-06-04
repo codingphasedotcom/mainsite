@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use EntrustUserTrait;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Project');
     }
+
+    // public function projects()
+    // {
+    //     return $this->belongsToMany('App\Project');
+    // }
 }

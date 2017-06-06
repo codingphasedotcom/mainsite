@@ -21,8 +21,6 @@ class ProjectTypesTable extends Seeder
         [
           'name' => 'Educational',
         ],
-      ]
-
-    );
+      ]);
     }
 }

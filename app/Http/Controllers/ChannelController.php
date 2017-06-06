@@ -48,6 +48,8 @@ class ChannelController extends Controller
      */
     public function store(Request $request)
     {
+
+
               $slug = request('title');
               // replace non letter or digits by -
               $slug = preg_replace('~[^\pL\d]+~u', '-', $slug);
@@ -71,7 +73,14 @@ class ChannelController extends Controller
               return 'n-a';
               }
 
+              $this->validate($request, [
+                'title' => 'required|unique:posts|max:255',
+                'description' => 'required',
+                'logo_img' => 'required'
+              ]);
+
               $channel = new Channel;
+
 
               //create new post
               $channel->title = request('title');

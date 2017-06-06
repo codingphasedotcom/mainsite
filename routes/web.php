@@ -70,6 +70,7 @@ Route::get('/channels/{channel}', 'PostController@index');
 Route::get('/channels/{channel}/new-blog', 'PostController@newblog')->middleware('auth');
 Route::get('/channels/{channel}/new-link', 'PostController@newlink')->middleware('auth');
 Route::get('/channels/{channel}/new-question', 'PostController@newquestion')->middleware('auth');
+Route::post('/channels/{channel}/submit', 'PostController@store')->middleware('auth');
 Route::get('/channels/{channel}/{post}', 'PostController@show');
 Route::get('/channels/{channel}/{post}/edit', 'PostController@edit');
 Route::get('/channels/submit', 'ChannelController@create');

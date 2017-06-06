@@ -15,8 +15,10 @@
       </div>
       <div class="col-sm-9">
         <div class="content-box">
-          <form action="/channels/submit" method="POST">
+          <form action="/channels/{{$channel}}/submit" method="POST">
             {{ csrf_field() }}
+            <input type="hidden" value="{{ $channelData->id }}" name="cnum" >
+            <input type="hidden" value="1" name="ctype" >
           <!-- Main content -->
           <section class="content">
             <div class="row">
@@ -25,7 +27,7 @@
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Create Posts</h3>
+                      <h3 class="box-title">Create Link</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->

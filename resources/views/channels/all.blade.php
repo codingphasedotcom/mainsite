@@ -59,15 +59,11 @@
             </div>
 
           @endforeach
-
-
-
-
           </div>
+        </div>
 
-
-
-
+        <div class="center-ad">
+          @include('includes/sideAds')
         </div>
 
       </div>

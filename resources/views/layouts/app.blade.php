@@ -33,7 +33,7 @@
           ga('send', 'pageview');
 
         </script>
-        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+        <link rel="stylesheet" href="{{ elixir('/css/app.css') }}">
     </head>
     <body>
 

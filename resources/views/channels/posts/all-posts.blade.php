@@ -56,10 +56,50 @@
         </div>
 
 
+        @foreach ($posts as $post)
+          <div class="content-box post-box post">
+            <div class="user-info">
+              <div class="user-img">
+                <i class="fa fa-bolt" aria-hidden="true"></i>
+                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"/>
+
+              </div>
+              <div class="user-name">Johny Dang</div>
+              <div class="user-stats">
+                <span>132</span><i class="fa fa-star" aria-hidden="true"></i>
+                <span>23</span><i class="fa fa-heart" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="user-post post">
+              <h2><strong>LINK:</strong> {{ $post->title }}</h2>
+              <a href="{{ $post->link_url }}" target="new" >
+                <div class=""
+                style="background: url({{ $post->image_url }}) no-repeat center center;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;height: 250px;"></div>
+              </a>
+              {{-- <img src="{{ $post->image_url }}" alt="" class="img-responsive" /> --}}
+
+              <p>{{ $post->description }}</p>
+                <div class="post-buttons">
+                  <a href="{{ $post->link_url }}" target="new" >
+                    <div class="more-btn">
+                      View More
+                    </div>
+                  </a>
+                  <div class="comment-btn">
+                    Comment
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        @endforeach
 
 
-
-        <div class="content-box post-box post">
+        {{-- <div class="content-box post-box post">
           <div class="user-info">
             <div class="user-img">
               <i class="fa fa-bolt" aria-hidden="true"></i>
@@ -75,17 +115,17 @@
           <div class="user-post post">
             <h2>Another Bullshit Blog</h2>
             <p>Notes
-Over the course of time, the Flexbox syntax has changed. If you browse the web for Flexbox articles, you may stumble across articles that use a syntax that’s different from the one used in this entry. Some articles may still be using the old syntax. The syntax used in this entry is the new/latest syntax.
-As you can see in the browser compatibility table, some older versions of browsers used to support the old syntax. Depending on how many browser versions you want to support, you may need to use both the old and the new Flexbox syntax.
-If you want to learn more about using the older and newer syntax for wider/older browser support, you can read Advanced Cross-Browser Flexbox at the Dev.Opera Blog.</p>
-  <div class="post-buttons">
-    <div class="more-btn">
-      View More
-    </div>
-    <div class="comment-btn">
-      Comment
-    </div>
-  </div>
+            Over the course of time, the Flexbox syntax has changed. If you browse the web for Flexbox articles, you may stumble across articles that use a syntax that’s different from the one used in this entry. Some articles may still be using the old syntax. The syntax used in this entry is the new/latest syntax.
+            As you can see in the browser compatibility table, some older versions of browsers used to support the old syntax. Depending on how many browser versions you want to support, you may need to use both the old and the new Flexbox syntax.
+            If you want to learn more about using the older and newer syntax for wider/older browser support, you can read Advanced Cross-Browser Flexbox at the Dev.Opera Blog.</p>
+              <div class="post-buttons">
+                <div class="more-btn">
+                  View More
+                </div>
+                <div class="comment-btn">
+                  Comment
+                </div>
+              </div>
           </div>
         </div>
 
@@ -128,7 +168,7 @@ If you want to learn more about using the older and newer syntax for wider/older
           <div class="user-post post">
             <h2>How to setup Node JS?</h2>
           </div>
-        </div>
+        </div> --}}
 
 
 

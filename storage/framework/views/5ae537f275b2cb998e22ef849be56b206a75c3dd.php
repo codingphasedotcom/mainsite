@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div id="channels">
   <div class="container">
 
@@ -8,16 +6,17 @@
 
       <div class="col-sm-3">
         <center>
-          @include('includes/sideAds')
+          <?php echo $__env->make('includes/sideAds', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
         </center>
       </div>
       <div class="col-sm-9">
         <div class="content-box">
-          <form action="/channels/{{$channel}}/submit" method="POST">
-            {{ csrf_field() }}
-            <input type="hidden" value="{{ $channelData->id }}" name="cnum" >
+          <form action="/channels/<?php echo e($channel); ?>/submit" method="POST">
+            <?php echo e(csrf_field()); ?>
+
+            <input type="hidden" value="<?php echo e($channelData->id); ?>" name="cnum" >
             <input type="hidden" value="3" name="ctype" >
           <!-- Main content -->
           <section class="content">
@@ -34,33 +33,33 @@
                     <form role="form">
                       <div class="box-body">
 
-                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                        <div class="form-group<?php echo e($errors->has('title') ? ' has-error' : ''); ?>">
                           <label for="title">Link Title</label>
-                          <input type="text" class="form-control" id="title" placeholder="title" value="{{ old('title') }}" name="title" >
-                          @if ($errors->has('title'))
+                          <input type="text" class="form-control" id="title" placeholder="title" value="<?php echo e(old('title')); ?>" name="title" >
+                          <?php if($errors->has('title')): ?>
                               <span class="help-block">
-                                  <strong>{{ $errors->first('title') }}</strong>
+                                  <strong><?php echo e($errors->first('title')); ?></strong>
                               </span>
-                          @endif
+                          <?php endif; ?>
                         </div>
-                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                        <div class="form-group<?php echo e($errors->has('description') ? ' has-error' : ''); ?>">
                           <label for="description">Short Description</label>
-                          <textarea type="text" class="form-control" id="description" placeholder="description" name="description">{{ old('description') }}</textarea>
-                          @if ($errors->has('description'))
+                          <textarea type="text" class="form-control" id="description" placeholder="description" name="description"><?php echo e(old('description')); ?></textarea>
+                          <?php if($errors->has('description')): ?>
                               <span class="help-block">
-                                  <strong>{{ $errors->first('description') }}</strong>
+                                  <strong><?php echo e($errors->first('description')); ?></strong>
                               </span>
-                          @endif
+                          <?php endif; ?>
                         </div>
 
-                        <div style="display: none;" class="form-group{{ $errors->has('link_url') ? ' has-error' : '' }}">
+                        <div style="display: none;" class="form-group<?php echo e($errors->has('link_url') ? ' has-error' : ''); ?>">
                           <label for="link_url">Link URL</label>
                           <input type="text" class="form-control" id="link_url" placeholder="Enter Image URL"  value="none" name="link_url">
-                          @if ($errors->has('link_url'))
+                          <?php if($errors->has('link_url')): ?>
                               <span class="help-block">
-                                  <strong>{{ $errors->first('link_url') }}</strong>
+                                  <strong><?php echo e($errors->first('link_url')); ?></strong>
                               </span>
-                          @endif
+                          <?php endif; ?>
                         </div>
 
                       </div>
@@ -92,9 +91,11 @@
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

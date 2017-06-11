@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div id="channels">
   <div class="">
 
@@ -8,7 +6,7 @@
 
       <div class="col-md-3 col-lg-3">
         <center>
-          @include('includes/sideAds')
+          <?php echo $__env->make('includes/sideAds', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
         </center>
@@ -27,23 +25,23 @@
                 </div>
               </div>
               <div class="col-xs-4 col-md-3 dropdown">
-                <a href="/channels/{{ $channel }}/new" class="add-btn dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <a href="/channels/<?php echo e($channel); ?>/new" class="add-btn dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                   Post
 
                 </a>
                 <ul class="dropdown-menu" role="menu" style="width: 100%;">
                     <li>
-                        <a href="/channels/{{ $channel }}/new-link">
+                        <a href="/channels/<?php echo e($channel); ?>/new-link">
                             Link
                         </a>
                     </li>
                     <li>
-                        <a href="/channels/{{ $channel }}/new-blog">
+                        <a href="/channels/<?php echo e($channel); ?>/new-blog">
                             Blog
                         </a>
                     </li>
                     <li>
-                        <a href="/channels/{{ $channel }}/new-question">
+                        <a href="/channels/<?php echo e($channel); ?>/new-question">
                             Question
                         </a>
                     </li>
@@ -56,8 +54,8 @@
         </div>
 
         <div class="">
-        @foreach ($posts as $post)
-        @if ($post->post_type_id == 1)
+        <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if($post->post_type_id == 1): ?>
         
         <div class="col-md-6">
           <div class="content-box post-box link">
@@ -67,7 +65,7 @@
                 <img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"/>
 
               </div>
-              <div class="user-name">{{ $post->user->username}}</div>
+              <div class="user-name"><?php echo e($post->user->username); ?></div>
               <div class="user-stats">
                 <span>132</span><i class="fa fa-star" aria-hidden="true"></i>
                 <span>23</span><i class="fa fa-heart" aria-hidden="true"></i>
@@ -75,22 +73,23 @@
             </div>
             <div class="user-post post">
               <h2>
-              <a href="/channels/{{ $channel }}/{{ $post->slug }}"><strong>LINK:</strong> {{ $post->title }}
+              <a href="/channels/<?php echo e($channel); ?>/<?php echo e($post->slug); ?>"><strong>LINK:</strong> <?php echo e($post->title); ?>
+
               </a>
               </h2>
-              <a href="{{ $post->link_url }}" target="new" >
+              <a href="<?php echo e($post->link_url); ?>" target="new" >
                 <div class=""
-                style="background: url({{ $post->image_url }}) no-repeat center center;
+                style="background: url(<?php echo e($post->image_url); ?>) no-repeat center center;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
                 background-size: cover;height: 250px;"></div>
               </a>
-              {{-- <img src="{{ $post->image_url }}" alt="" class="img-responsive" /> --}}
+              
 
-              <p>{{ $post->description }}</p>
+              <p><?php echo e($post->description); ?></p>
                 <div class="post-buttons">
-                  <a href="{{ $post->link_url }}" target="new" >
+                  <a href="<?php echo e($post->link_url); ?>" target="new" >
                     <div class="more-btn">
                       View More
                     </div>
@@ -103,7 +102,7 @@
           </div>
         </div>
 
-          @elseif ($post->post_type_id == 2)
+          <?php elseif($post->post_type_id == 2): ?>
           <div class="col-md-6">
           <div class="content-box post-box blog">
             <div class="user-info">
@@ -112,18 +111,19 @@
                 <img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"/>
 
               </div>
-              <div class="user-name">{{ $post->user->username}}</div>
+              <div class="user-name"><?php echo e($post->user->username); ?></div>
               <div class="user-stats">
                 <span>132</span><i class="fa fa-star" aria-hidden="true"></i>
                 <span>23</span><i class="fa fa-heart" aria-hidden="true"></i>
               </div>
             </div>
             <div class="user-post post">
-              <h2><a href="/channels/{{ $channel }}/{{ $post->slug }}"><strong>Blog:</strong> {{ $post->title }}
+              <h2><a href="/channels/<?php echo e($channel); ?>/<?php echo e($post->slug); ?>"><strong>Blog:</strong> <?php echo e($post->title); ?>
+
               </a></h2>
-              <p>{{ $post->description }}</p>
+              <p><?php echo e($post->description); ?></p>
                   <div class="post-buttons">
-                    <a href="{{ $post->link_url }}" target="new" >
+                    <a href="<?php echo e($post->link_url); ?>" target="new" >
                       <div class="more-btn">
                         View More
                       </div>
@@ -137,7 +137,7 @@
           </div>
           </div>
 
-          @else
+          <?php else: ?>
           <div class="col-md-6">
            <div class="content-box post-box question">
             <div class="user-info">
@@ -146,18 +146,19 @@
                 <img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"/>
 
               </div>
-              <div class="user-name">{{ $post->user->username}}</div>
+              <div class="user-name"><?php echo e($post->user->username); ?></div>
               <div class="user-stats">
                 <span>132</span><i class="fa fa-star" aria-hidden="true"></i>
                 <span>23</span><i class="fa fa-heart" aria-hidden="true"></i>
               </div>
             </div>
             <div class="user-post post">
-              <h2><a href="/channels/{{ $channel }}/{{ $post->slug }}">
-              <strong>Q&A:</strong> {{ $post->title }}
+              <h2><a href="/channels/<?php echo e($channel); ?>/<?php echo e($post->slug); ?>">
+              <strong>Q&A:</strong> <?php echo e($post->title); ?>
+
               </a></h2>
                 <div class="post-buttons">
-                  <a href="{{ $post->link_url }}" target="new" >
+                  <a href="<?php echo e($post->link_url); ?>" target="new" >
                     <div class="more-btn">
                       View More
                     </div>
@@ -170,22 +171,23 @@
           </div>
           </div>
 
-        @endif
+        <?php endif; ?>
           
 
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
 
         <div class="content-box post-box post">
         
           <center>
-            @include('includes/sideAds')
+            <?php echo $__env->make('includes/sideAds', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
           </center>
         </div>
 
         <div class="content-box post-box post">
         <center>
-        {{ $posts->links() }}
+        <?php echo e($posts->links()); ?>
+
         </center>
         </div>
 
@@ -195,4 +197,6 @@
 
   </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -96,11 +96,5 @@
 
 
 @section('scripts')
-<script>
 
-$.ajax('http://opengraph.io/api/1.0/site/http%3A%2F%2Fwww.washingtontimes.com%2F')
-  .done(function(data){
-    console.log(data);
-  });
-</script>
 @endsection

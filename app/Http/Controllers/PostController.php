@@ -33,9 +33,10 @@ class PostController extends Controller
      */
     public function newblog($channel)
     {
-      $posts = Post::where('slug', '=', $channel);
+      $channelData = Channel::where('slug', '=', $channel)->first();
 
-      return view('channels/posts/create-blog', compact('channel'));
+      return view('channels/posts/create-blog', compact('channel', 'channelData'));
+
     }
     public function newlink($channel)
     {
@@ -48,7 +49,9 @@ class PostController extends Controller
     public function newquestion($channel)
     {
 
-      return view('channels/posts/create-question', compact('channel'));
+      $channelData = Channel::where('slug', '=', $channel)->first();
+
+      return view('channels/posts/create-question', compact('channel', 'channelData'));
     }
 
     /**
@@ -90,37 +93,69 @@ class PostController extends Controller
         'link_url' => 'required|unique:posts'
       ]);
 
-      $metadatas;
 
-        libxml_use_internal_errors(true);
-          $doc = new DomDocument();
-          $doc->loadHTML(file_get_contents(request('link_url')));
-          $xpath = new DOMXPath($doc);
-          $query = '//*/meta[starts-with(@property, \'og:\')]';
-          $metas = $xpath->query($query);
-          foreach ($metas as $meta) {
 
-              $property = $meta->getAttribute('property');
-              $content = $meta->getAttribute('content');
-              // echo '<h1>Meta '.$property.' <span>'.$content.'</span></h1>';
-              $metadatas[$property] = $content;
+      switch (request('ctype')) {
+        case 1:
 
-              // echo $content;
-      }
-      // return $request->all();
+        // GET Link Image and info
+        $metadatas;
 
-      if(request('ctype') == 1){
-        //create new post
-        $post->title = request('title');
-        $post->description = request('description');
-        $post->link_url = $request->link_url;
-        $post->slug = $slug;
-        $post->channel_id =  request('cnum');
-        $post->image_url =  $metadatas["og:image"];
-        $post->post_type_id =  request('ctype');
-        $post->user_id =  Auth::user()->id;
-        // $post->approved =  1;
-      }
+          libxml_use_internal_errors(true);
+            $doc = new DomDocument();
+            $doc->loadHTML(file_get_contents(request('link_url')));
+            $xpath = new DOMXPath($doc);
+            $query = '//*/meta[starts-with(@property, \'og:\')]';
+            $metas = $xpath->query($query);
+            foreach ($metas as $meta) {
+
+                $property = $meta->getAttribute('property');
+                $content = $meta->getAttribute('content');
+                // echo '<h1>Meta '.$property.' <span>'.$content.'</span></h1>';
+                $metadatas[$property] = $content;
+
+                // echo $content;
+        }
+            //create new post
+            $post->title = request('title');
+            $post->description = request('description');
+            $post->link_url = $request->link_url;
+            $post->slug = $slug;
+            $post->channel_id =  request('cnum');
+            // if image is not on sites meta then use the default
+            if(isset($metadatas["og:image"])){
+              $post->image_url =  $metadatas["og:image"];
+            } else {
+              $post->image_url =  '/img/post-no-img.png';
+            }
+
+            $post->post_type_id =  request('ctype');
+            $post->user_id =  Auth::user()->id;
+            // $post->approved =  1;
+            break;
+        case 2:
+          // return "BLOG";
+          // return "GOT HERE";
+            $post->title = request('title');
+            $post->description = request('description');
+            $post->link_url = $request->link_url;
+            $post->image_url = $request->image_url;
+            $post->slug = $slug;
+            $post->channel_id =  request('cnum');
+            $post->post_type_id =  request('ctype');
+            $post->user_id =  Auth::user()->id;
+            break;
+        case 3:
+        // return "got here";
+            $post->title = request('title');
+            $post->description = request('description');
+            $post->slug = $slug;
+            $post->channel_id =  request('cnum');
+            $post->post_type_id =  request('ctype');
+            $post->user_id =  Auth::user()->id;
+            
+        break;
+}
 
 
       // dd($metadatas["og:image"]);
@@ -142,9 +177,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($channel, $post)
     {
-        //
+        $post = Post::where('slug', '=', $post)->first();
+
+        return view('channels/posts/show-posts', compact('channel', 'post'));
     }
 
     /**

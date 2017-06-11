@@ -19,8 +19,8 @@ class CreatePostsTable extends Migration
             $table->integer('channel_id');
             $table->string('title');
             $table->text('description');
-            $table->string('image_url');
-            $table->string('link_url');
+            $table->string('image_url')->nullable();
+            $table->string('link_url')->nullable();
             $table->string('slug');
             $table->string('post_type_id');
             $table->timestamps();

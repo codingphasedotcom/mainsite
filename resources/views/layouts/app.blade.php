@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>CodingPhase</title>
+        <title>CodingPhase @yield('title')</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,500,600,700|Raleway:300,400,500" rel="stylesheet">
@@ -16,7 +16,10 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.8/typicons.min.css" rel="stylesheet" crossorigin="anonymous">
 
+
+
         <!-- Styles -->
+        @yield('top')
         <!-- Scripts -->
         <script>
             window.Laravel = {!! json_encode([
@@ -36,19 +39,21 @@
         <link rel="stylesheet" href="{{ elixir('/css/app.css') }}">
     </head>
     <body>
+      
 
 
     <div class="page-content">
     @include('includes/mobile-nav')
       @include('includes/navigation')
 
-      @yield('content')
+     @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-@yield('scripts')
+
+  @yield('scripts')
     <script type="text/javascript">
     $(document).ready(function() {
       $( ".desktop-nav" ).on( "click", '.fa-bars', function() {
@@ -68,6 +73,5 @@
 
     </script>
 
-    <script src="/js/app.js"></script>
 </body>
 </html>

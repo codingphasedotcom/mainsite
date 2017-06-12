@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Channel;
+use App\Comment;
 use Auth;
 use DomDocument;
 use DOMXPath;
@@ -87,16 +88,16 @@ class PostController extends Controller
       }
       $post = new Post;
 
-      $this->validate($request, [
-        'title' => 'required|unique:posts|max:255',
-        'description' => 'required',
-        'link_url' => 'required|unique:posts'
-      ]);
 
 
 
       switch (request('ctype')) {
         case 1:
+        $this->validate($request, [
+        'title' => 'required|unique:posts|max:255',
+        'description' => 'required',
+        'link_url' => 'required|unique:posts'
+      ]);
 
         // GET Link Image and info
         $metadatas;
@@ -134,11 +135,14 @@ class PostController extends Controller
             // $post->approved =  1;
             break;
         case 2:
+        $this->validate($request, [
+        'title' => 'required|unique:posts|max:255',
+        'description' => 'required',
+        ]);
           // return "BLOG";
           // return "GOT HERE";
             $post->title = request('title');
             $post->description = request('description');
-            $post->link_url = $request->link_url;
             $post->image_url = $request->image_url;
             $post->slug = $slug;
             $post->channel_id =  request('cnum');
@@ -146,6 +150,9 @@ class PostController extends Controller
             $post->user_id =  Auth::user()->id;
             break;
         case 3:
+            $this->validate($request, [
+              'description' => 'required',
+            ]);
         // return "got here";
             $post->title = request('title');
             $post->description = request('description');
@@ -181,7 +188,11 @@ class PostController extends Controller
     {
         $post = Post::where('slug', '=', $post)->first();
 
-        return view('channels/posts/show-posts', compact('channel', 'post'));
+        $comments = Comment::where('post_id', '=', $post->id)->orderBy('created_at', 'desc')->paginate(20);
+
+        $channelData = Channel::where('slug', '=', $channel)->first();
+
+        return view('channels/posts/show-posts', compact('channel', 'post', 'channelData', 'comments'));
     }
 
     /**

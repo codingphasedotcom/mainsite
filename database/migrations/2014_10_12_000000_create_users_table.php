@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();
+            $table->string('user_img')->nullable();
             $table->boolean('founder')->default(0);
             $table->boolean('paid')->default(0);
             $table->rememberToken();

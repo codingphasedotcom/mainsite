@@ -134,6 +134,14 @@
       -ms-flex-align: stretch;
       align-items: stretch;
 
+      &.comment{
+        // background: red;
+        form{
+          display: block;
+          width: 100%;
+        }
+      }
+
       .user-info {
         max-width: 350px;
         flex: 2 1 20%;

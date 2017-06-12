@@ -90,14 +90,11 @@
 
               <p>{{ $post->description }}</p>
                 <div class="post-buttons">
-                  <a href="{{ $post->link_url }}" target="new" >
-                    <div class="more-btn">
-                      View More
+                  <a href="/channels/{{ $channel }}/{{ $post->slug }}">
+                    <div class="comment-btn">
+                      Comment
                     </div>
                   </a>
-                  <div class="comment-btn">
-                    Comment
-                  </div>
                 </div>
             </div>
           </div>
@@ -123,14 +120,16 @@
               </a></h2>
               <p>{{ $post->description }}</p>
                   <div class="post-buttons">
-                    <a href="{{ $post->link_url }}" target="new" >
+                    <a href="/channels/{{ $channel }}/{{ $post->slug }}">
                       <div class="more-btn">
                         View More
                       </div>
                     </a>
-                    <div class="comment-btn">
-                      Comment
-                    </div>
+                    <a href="/channels/{{ $channel }}/{{ $post->slug }}">
+                      <div class="comment-btn">
+                        Comment
+                      </div>
+                    </a>
                   </div>
             </div>
             

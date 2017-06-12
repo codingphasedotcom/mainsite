@@ -73,4 +73,8 @@ Route::get('/channels/{channel}/new-question', 'PostController@newquestion')->mi
 Route::post('/channels/{channel}/submit', 'PostController@store')->middleware('auth');
 Route::get('/channels/{channel}/{post}', 'PostController@show');
 Route::get('/channels/{channel}/{post}/edit', 'PostController@edit');
+Route::post('/channels/{channel}/{post}/comment', 'CommentController@store');
 Route::get('/channels/submit', 'ChannelController@create');
+
+Route::get('sitemap', 'SitemapsController@index');
+Route::get('sitemap/posts', 'SitemapsController@posts');

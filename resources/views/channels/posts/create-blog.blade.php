@@ -24,6 +24,8 @@
             {{ csrf_field() }}
             <input type="hidden" value="{{ $channelData->id }}" name="cnum" >
             <input type="hidden" value="2" name="ctype" >
+            
+            
           <!-- Main content -->
           <section class="content">
             <div class="row">
@@ -36,7 +38,6 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
                       <div class="box-body">
                       
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -74,7 +75,6 @@
                       <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </div>
-                    </form>
                   </div>
               </div>
 

@@ -23,6 +23,8 @@
 
             <input type="hidden" value="<?php echo e($channelData->id); ?>" name="cnum" >
             <input type="hidden" value="2" name="ctype" >
+            
+            
           <!-- Main content -->
           <section class="content">
             <div class="row">
@@ -35,7 +37,6 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
                       <div class="box-body">
                       
                         <div class="form-group<?php echo e($errors->has('title') ? ' has-error' : ''); ?>">
@@ -57,12 +58,12 @@
                           <?php endif; ?>
                         </div>
 
-                        <div class="form-group<?php echo e($errors->has('link_url') ? ' has-error' : ''); ?>">
-                          <label for="link_url">Link URL</label>
-                          <input type="text" class="form-control" id="link_url" placeholder="Enter Image URL"  value="<?php echo e(old('link_url')); ?>" name="link_url">
-                          <?php if($errors->has('link_url')): ?>
+                        <div class="form-group<?php echo e($errors->has('image_url') ? ' has-error' : ''); ?>">
+                          <label for="image_url">Link URL</label>
+                          <input type="text" class="form-control" id="image_url" placeholder="Enter Image URL"  value="<?php echo e(old('image_url')); ?>" name="image_url">
+                          <?php if($errors->has('image_url')): ?>
                               <span class="help-block">
-                                  <strong><?php echo e($errors->first('link_url')); ?></strong>
+                                  <strong><?php echo e($errors->first('image_url')); ?></strong>
                               </span>
                           <?php endif; ?>
                         </div>
@@ -73,7 +74,6 @@
                       <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </div>
-                    </form>
                   </div>
               </div>
 

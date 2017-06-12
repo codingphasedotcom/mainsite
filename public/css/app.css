@@ -8476,6 +8476,11 @@ p {
   align-items: stretch;
 }
 
+#channels #posts .post-box.comment form {
+  display: block;
+  width: 100%;
+}
+
 #channels #posts .post-box .user-info {
   max-width: 350px;
   -webkit-box-flex: 2;
@@ -8571,6 +8576,14 @@ p {
 #channels #posts .post-box .user-post .post-buttons .more-btn:hover {
   background: #769bdc;
   color: #fff;
+}
+
+.comment {
+  background: red;
+}
+
+.comment form {
+  display: block;
 }
 
 * {

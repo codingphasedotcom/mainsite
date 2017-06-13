@@ -70,7 +70,7 @@
 
                 <div class="post-info">
                   <h2>
-                    <strong>LINK:</strong> <?php echo e($post->title); ?>
+                    <strong>LINK: </strong><br> <?php echo e($post->title); ?>
 
                     
                   </h2>
@@ -135,7 +135,7 @@
               </div>
             </div>
             <div class="user-post post">
-              <h2><a href="/channels/<?php echo e($channel); ?>/<?php echo e($post->slug); ?>"><strong>Blog:</strong> <?php echo e($post->title); ?>
+              <h2><a href="/channels/<?php echo e($channel); ?>/<?php echo e($post->slug); ?>"><strong>Blog:</strong> <br><?php echo e($post->title); ?>
 
               </a></h2>
               <p><?php echo e($post->description); ?></p>
@@ -174,7 +174,7 @@
             </div>
             <div class="user-post post">
               <h2><a href="/channels/<?php echo e($channel); ?>/<?php echo e($post->slug); ?>">
-              <strong>Q&A:</strong> <?php echo e($post->title); ?>
+              <strong>Q&A:</strong> <br><?php echo e($post->title); ?>
 
               </a></h2>
                 <div class="post-buttons">

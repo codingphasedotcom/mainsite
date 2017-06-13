@@ -72,7 +72,7 @@
 
                 <div class="post-info">
                   <h2>
-                    <strong>LINK:</strong> {{ $post->title }}
+                    <strong>LINK: </strong><br> {{ $post->title }}
                     
                   </h2>
                 </div>
@@ -135,7 +135,7 @@
               </div>
             </div>
             <div class="user-post post">
-              <h2><a href="/channels/{{ $channel }}/{{ $post->slug }}"><strong>Blog:</strong> {{ $post->title }}
+              <h2><a href="/channels/{{ $channel }}/{{ $post->slug }}"><strong>Blog:</strong> <br>{{ $post->title }}
               </a></h2>
               <p>{{ $post->description }}</p>
                   <div class="post-buttons">
@@ -173,7 +173,7 @@
             </div>
             <div class="user-post post">
               <h2><a href="/channels/{{ $channel }}/{{ $post->slug }}">
-              <strong>Q&A:</strong> {{ $post->title }}
+              <strong>Q&A:</strong> <br>{{ $post->title }}
               </a></h2>
                 <div class="post-buttons">
                   <a href="{{ $post->link_url }}" target="new" >

@@ -6,14 +6,14 @@
 
     <div id="posts" class="row">
 
-      <div class="col-md-3 col-lg-3">
+      <div class="col-md-12 col-lg-12">
         <center>
           @include('includes/sideAds')
 
 
         </center>
       </div>
-      <div class="col-md-9 col-lg-8">
+      <div class="col-md-12 col-lg-12">
         <div class="content-box">
           <div class="filter-section">
             <div class="row">
@@ -55,13 +55,28 @@
           </div>
         </div>
 
-        <div class="">
+        <div class="mansory">
         @foreach ($posts as $post)
         @if ($post->post_type_id == 1)
         
-        <div class="col-md-6">
-          <div class="content-box post-box link">
-            <div class="user-info">
+        
+        <div class="item">
+        <div class="">
+          <a href="/channels/{{ $channel }}/{{ $post->slug }}">
+          <div class="content-box post-box link" style="background: url({{ $post->image_url }}) no-repeat center center;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;height: 250px;
+                position: relative;">
+
+                <div class="post-info">
+                  <h2>
+                    <strong>LINK:</strong> {{ $post->title }}
+                    
+                  </h2>
+                </div>
+            <!--<div class="user-info">
               <div class="user-img">
                 <i class="fa fa-bolt" aria-hidden="true"></i>
                 <img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"/>
@@ -96,12 +111,16 @@
                     </div>
                   </a>
                 </div>
-            </div>
+            </div>-->
+            
           </div>
+          </a>
+        </div>
         </div>
 
           @elseif ($post->post_type_id == 2)
-          <div class="col-md-6">
+          <div class="item">
+          <div class="">
           <div class="content-box post-box blog">
             <div class="user-info">
               <div class="user-img">
@@ -135,9 +154,10 @@
             
           </div>
           </div>
+          </div>
 
           @else
-          <div class="col-md-6">
+          <div class="item">
            <div class="content-box post-box question">
             <div class="user-info">
               <div class="user-img">

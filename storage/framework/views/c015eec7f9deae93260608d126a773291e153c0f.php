@@ -4,14 +4,14 @@
 
     <div id="posts" class="row">
 
-      <div class="col-md-3 col-lg-3">
+      <div class="col-md-12 col-lg-12">
         <center>
           <?php echo $__env->make('includes/sideAds', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
         </center>
       </div>
-      <div class="col-md-9 col-lg-8">
+      <div class="col-md-12 col-lg-12">
         <div class="content-box">
           <div class="filter-section">
             <div class="row">
@@ -53,13 +53,29 @@
           </div>
         </div>
 
-        <div class="">
+        <div class="mansory">
         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php if($post->post_type_id == 1): ?>
         
-        <div class="col-md-6">
-          <div class="content-box post-box link">
-            <div class="user-info">
+        
+        <div class="item">
+        <div class="">
+          <a href="/channels/<?php echo e($channel); ?>/<?php echo e($post->slug); ?>">
+          <div class="content-box post-box link" style="background: url(<?php echo e($post->image_url); ?>) no-repeat center center;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;height: 250px;
+                position: relative;">
+
+                <div class="post-info">
+                  <h2>
+                    <strong>LINK:</strong> <?php echo e($post->title); ?>
+
+                    
+                  </h2>
+                </div>
+            <!--<div class="user-info">
               <div class="user-img">
                 <i class="fa fa-bolt" aria-hidden="true"></i>
                 <img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"/>
@@ -95,12 +111,16 @@
                     </div>
                   </a>
                 </div>
-            </div>
+            </div>-->
+            
           </div>
+          </a>
+        </div>
         </div>
 
           <?php elseif($post->post_type_id == 2): ?>
-          <div class="col-md-6">
+          <div class="item">
+          <div class="">
           <div class="content-box post-box blog">
             <div class="user-info">
               <div class="user-img">
@@ -135,9 +155,10 @@
             
           </div>
           </div>
+          </div>
 
           <?php else: ?>
-          <div class="col-md-6">
+          <div class="item">
            <div class="content-box post-box question">
             <div class="user-info">
               <div class="user-img">

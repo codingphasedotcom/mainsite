@@ -8468,12 +8468,63 @@ p {
   background: #ecf1f2;
 }
 
+#channels #posts .mansory {
+  -webkit-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 1em;
+  column-gap: 1em;
+}
+
+#channels #posts .mansory .item {
+  display: inline-block;
+  background: #fff;
+  margin: 0 0 1.5em;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 6px 13px 0 rgba(147, 210, 235, 0.21);
+}
+
+#channels #posts .mansory .item .content-box {
+  margin-bottom: 0;
+}
+
+#channels #posts .mansory .item .content-box.link {
+  height: 500px !important;
+}
+
 #channels #posts .post-box {
   -webkit-display: -webkit-box;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: stretch;
   align-items: stretch;
+}
+
+#channels #posts .post-box .post-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  background: #769bdc;
+  background: linear-gradient(to bottom, #769bdc 0%, #2dcbd0 100%);
+  transition: all .6s ease-in-out;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+#channels #posts .post-box .post-info h2 {
+  font-size: 24px;
+  color: white;
+}
+
+#channels #posts .post-box .post-info:hover {
+  opacity: .9;
 }
 
 #channels #posts .post-box.comment form {

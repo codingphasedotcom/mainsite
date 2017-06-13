@@ -122,6 +122,27 @@
       text-align: center;
       background: #ecf1f2;
     }
+    .mansory{
+      column-count: 3;
+      column-gap: 1em;
+      .item{
+        display: inline-block;
+        background: #fff;
+        // padding: 1em;
+        margin: 0 0 1.5em;
+        width: 100%;
+        box-sizing: border-box;
+        box-shadow: 0 6px 13px 0 rgba(147, 210, 235, 0.21);
+
+        .content-box{
+          margin-bottom: 0;
+
+          &.link{
+            height: 500px !important;
+          }
+        }
+      }
+    }
 
     .post-box {
       -webkit-display: -webkit-box;
@@ -133,6 +154,29 @@
       -webkit-box-align: stretch;
       -ms-flex-align: stretch;
       align-items: stretch;
+
+      .post-info{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        opacity: 0;
+        background: #769bdc;
+        background: linear-gradient(to bottom, #769bdc 0%, #2dcbd0 100%);
+        transition: all .6s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h2{
+          font-size: 24px;
+          color: white;
+        }
+
+        &:hover{
+          opacity: .9;
+        }
+      }
 
       &.comment{
         // background: red;

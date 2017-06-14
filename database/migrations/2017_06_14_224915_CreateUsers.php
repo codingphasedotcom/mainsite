@@ -13,7 +13,8 @@ class CreateUsers extends Migration
      */
     public function up()
     {
-        $table->increments('id');
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('username');
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
@@ -29,6 +30,8 @@ class CreateUsers extends Migration
             $table->boolean('paid')->default(0);
             $table->rememberToken();
             $table->timestamps();
+        });
+        
     }
 
     /**

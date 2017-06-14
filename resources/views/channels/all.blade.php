@@ -52,8 +52,16 @@
                 </div>
                 </a>
                 <div class="channel-title">{{ $channel->title }}</div>
-                <a href="#" class="follow-btn">
-                  Follow
+                <a href="/followchannel/{{ $channel->slug}}" class="follow-btn">
+                  @if (Auth::check())
+                    @if ($user->isFollowing($channel->slug)) 
+                    Unfollow
+                    @else
+                    Follow 
+                    @endif
+                  @else
+                    Follow
+                  @endif
                 </a>
               </div>
             </div>

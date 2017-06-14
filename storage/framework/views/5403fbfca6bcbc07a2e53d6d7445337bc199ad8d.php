@@ -50,8 +50,16 @@
                 </div>
                 </a>
                 <div class="channel-title"><?php echo e($channel->title); ?></div>
-                <a href="#" class="follow-btn">
-                  Follow
+                <a href="/followchannel/<?php echo e($channel->slug); ?>" class="follow-btn">
+                  <?php if(Auth::check()): ?>
+                    <?php if($user->isFollowing($channel->slug)): ?> 
+                    Unfollow
+                    <?php else: ?>
+                    Follow 
+                    <?php endif; ?>
+                  <?php else: ?>
+                    Follow
+                  <?php endif; ?>
                 </a>
               </div>
             </div>

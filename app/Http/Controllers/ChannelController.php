@@ -18,16 +18,18 @@ class ChannelController extends Controller
       $channels = Channel::where('approved', '=', '1')->get();
 
       if(Auth::user()) {
-        $id = Auth::user()->id;
-        $currentuser = User::find($id);
+        $user = Auth::user();
+        $currentuser = User::find($user->id);
         // if($user->hasRole(['super_user', 'admin'])) {
         //   return "THIS IS ADMIN SUPER USER";
         // }
         // return "THIS IS ADMIN SUPER USER";
+      } else {
+        $user = null;
       }
 
 
-        return view('channels/all', compact('channels'));
+        return view('channels/all', compact('channels', 'user'));
     }
 
     /**

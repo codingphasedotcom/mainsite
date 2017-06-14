@@ -76,5 +76,8 @@ Route::get('/channels/{channel}/{post}/edit', 'PostController@edit');
 Route::post('/channels/{channel}/{post}/comment', 'CommentController@store')->middleware('auth');
 Route::get('/channels/submit', 'ChannelController@create');
 
+// Relationships
+Route::get('/followchannel/{channel}', 'RelationshipsController@followChannel')->middleware('auth');
+
 Route::get('sitemap', 'SitemapsController@index');
 Route::get('sitemap/posts', 'SitemapsController@posts');

@@ -13,6 +13,7 @@ class CreateChannelUserTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
         Schema::create('channel_user', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('channel_id');

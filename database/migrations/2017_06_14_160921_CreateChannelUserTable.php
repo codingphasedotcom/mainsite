@@ -23,11 +23,11 @@ class CreateChannelUserTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
+     * 
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('channel_user');
+        Schema::dropIfExists('channel_user'); //Trying to reverse this line
     }
 }

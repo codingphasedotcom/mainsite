@@ -28,6 +28,6 @@ class CreateChannelUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('relationships');
+        Schema::dropIfExists('channel_user');
     }
 }
